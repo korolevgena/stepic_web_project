@@ -1,5 +1,3 @@
-def params(a=None, b=None):
-
-return ‘a %s and b %s’ % (a, b)
-
-response_headers = [('Content-type','text/plain')]
+def hello(env, start_response):
+    start_response('200 OK', [('Content-Type', 'text/html')])
+    return ["Hello!"]
