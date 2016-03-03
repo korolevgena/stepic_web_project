@@ -1,7 +1,11 @@
 #1from cgi import parse_qs
-import urlparse
+import os
 
 def hello(environ, start_response):
-    start_response('200 OK', [('Content-Type', 'text/plain')])
-	response_body = "\r\n".join(environ['QUERY_STRING'].split("&")) 
-	return [response_body]
+	status = '200 OK'
+	headers = [
+		('Content-Type', 'text/plain')
+	]
+body = 'Hello, world!'
+start_response(status, headers )
+return [ body ]
