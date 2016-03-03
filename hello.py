@@ -1,6 +1,5 @@
 def hello(environ, start_response):
 	status = '200 OK'
-	headers = [('Content-Type', 'text/plain')]
-	body = 'Hello, world!'
-	start_response(status, headers )
+	start_response('200 OK', [('Content-Type', 'text/plain')])
+	body = "\r\n".join(environ['QUERY_STRING'].split("&")) 
 	return [ body ]
