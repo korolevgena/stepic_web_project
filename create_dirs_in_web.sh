@@ -17,3 +17,4 @@ python manage.py startapp qa
 echo "from django.http import HttpResponse 
 def test(request, *args, **kwargs):
     return HttpResponse('OK')" >> /home/box/web/ask/qa/views.py
+cp -f /home/box/web/urls.py /home/box/web/ask/ask/urls.py
