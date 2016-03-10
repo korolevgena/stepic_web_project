@@ -10,7 +10,10 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/gunicorn.conf   /etc/gunicorn.d/test
 sudo /etc/init.d/gunicorn restart
 sudo service nginx restart
-cd /bome/box/web
+cd /home/box/web
 django-admin startproject ask
-cd /bome/box/web/ask
-./manage.py startapp qa
+cd /home/box/web/ask
+python manage.py startapp qa 
+echo "from django.http import HttpResponse 
+def test(request, *args, **kwargs):
+    return HttpResponse('OK')" >> /home/box/web/ask/qa/views.py
