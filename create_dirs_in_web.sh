@@ -9,9 +9,6 @@ sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/gunicorn.conf   /etc/gunicorn.d/test
 sudo ln -sf /home/box/web/etc/gunicorn_django.conf   /etc/gunicorn.d/django
-sudo /etc/init.d/gunicorn restart
-sudo service nginx reload
-sudo service nginx restart
 cd /home/box/web
 django-admin startproject ask
 cd /home/box/web/ask
@@ -20,3 +17,7 @@ echo "from django.http import HttpResponse
 def test(request, *args, **kwargs):
     return HttpResponse('OK')" >> /home/box/web/ask/qa/views.py
 cp -f /home/box/web/urls.py /home/box/web/ask/ask/urls.py
+
+sudo service nginx reload
+sudo service nginx restart
+sudo /etc/init.d/gunicorn restart
