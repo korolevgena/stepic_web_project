@@ -10,6 +10,7 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/gunicorn.conf   /etc/gunicorn.d/test
 sudo ln -sf /home/box/web/etc/gunicorn_django.conf   /etc/gunicorn.d/django
 sudo /etc/init.d/gunicorn restart
+sudo service nginx reload
 sudo service nginx restart
 cd /home/box/web
 django-admin startproject ask
