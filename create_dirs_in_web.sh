@@ -21,3 +21,9 @@ cp -f /home/box/web/urls.py /home/box/web/ask/ask/urls.py
 sudo service nginx reload
 sudo service nginx restart
 sudo /etc/init.d/gunicorn restart
+
+sudo /etc/init.d/mysql restart
+mysql -uroot -e "create database stepic;"
+mysql -uroot -e "CREATE USER 'gena'@'localhost' IDENTIFIED BY 'password';"
+mysql -uroot -e "GRANT ALL PRIVILEGES ON * . * TO 'gena'@'localhost';"
+mysql -uroot -e "FLUSH PRIVILEGES;"
