@@ -4,7 +4,7 @@ mkdir public/css -p
 mkdir uploads
 
 sudo apt-get update 
-sudo apt-get install nginx
+sudo apt-get --force-yes -y install nginx
 sudo ln -sf /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
 sudo rm /etc/nginx/sites-enabled/default
 sudo ln -sf /home/box/web/etc/gunicorn.conf   /etc/gunicorn.d/test
@@ -44,3 +44,5 @@ class Answer(models.Model):
     added_at = models.DateField()
     question = models.OneToOneField(Question)
     author = models.CharField(max_length=20)" >> /home/box/web/ask/qa/models.py
+	
+python /home/box/web/ask/manage.py syncdb 
