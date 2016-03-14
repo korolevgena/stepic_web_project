@@ -27,3 +27,20 @@ mysql -uroot -e "create database stepic;"
 mysql -uroot -e "CREATE USER 'gena'@'localhost' IDENTIFIED BY 'password';"
 mysql -uroot -e "GRANT ALL PRIVILEGES ON * . * TO 'gena'@'localhost';"
 mysql -uroot -e "FLUSH PRIVILEGES;"
+
+
+echo "from django.contrib.auth.models import User
+
+class Question(models.Model):
+    title = models.CharField(max_length=50)
+    text = models.CharField(max_length=100)
+    added_at = models.DateField()
+    rating = models.IntegerField()
+    author = models.CharField(max_length=20)
+    likes = models.ForeignKey(User)
+
+class Answer(models.Model):
+    text = models.CharField(max_length=100)
+    added_at = models.DateField()
+    question = models.OneToOneField(Question)
+    author = models.CharField(max_length=20)" >> /home/box/web/ask/qa/models.py
