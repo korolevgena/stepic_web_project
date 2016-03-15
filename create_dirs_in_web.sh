@@ -45,4 +45,4 @@ class Answer(models.Model):
     question = models.OneToOneField(Question)
     author = models.CharField(max_length=20)" >> /home/box/web/ask/qa/models.py
 	
-python /home/box/web/ask/manage.py syncdb 
+sudo python /home/box/web/ask/manage.py syncdb 
