@@ -39,11 +39,15 @@ class Question(models.Model):
     rating = models.IntegerField()
     author = models.CharField(max_length=20)
     likes = models.ForeignKey(User)
+	class Meta:
+		db_table = 'question'
 
 class Answer(models.Model):
     text = models.CharField(max_length=100)
     added_at = models.DateField()
     question = models.OneToOneField(Question)
-    author = models.CharField(max_length=20)" >> /home/box/web/ask/qa/models.py
+    author = models.CharField(max_length=20)
+	class Meta:
+		db_table = 'answer'" >> /home/box/web/ask/qa/models.py
 	
 sudo python /home/box/web/ask/manage.py syncdb 
